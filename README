@@ -1,0 +1,22 @@
+Pentru implementarea editorului de imagini am ales sa folosesc doua structuri in care
+sa retin variabilele ce vor fi folositoare pe parcursul operatiilor.
+Pentru imaginile de tip grayscale am folosit un struct simplu care
+retine dimensiunile si selectia curenta, iar pentru imaginile de tip 
+color structul este asemanator dar in loc de o matrice de tip int 
+contine o matrice de tipul definit de mine "rgbpixel" care contine 
+3 valori pentru fiecare din culorile spectrului rgb.
+Apoi, am definit niste functii ajutatoare precum 
+alloc, swap, free, etc. pentru structurile mele de date. 
+In operatia load am folosit mai multe functii, 
+pentru fiecare format de imagine cerut. 
+Functia save este asemanatoare.
+In main am citit comenziile si conform fiecarei comenzi
+se aplica functia corespunzatoare ei. 
+In majoritatea functiilor a trebuit sa gestionez cu ce fel de 
+imagine lucrez, am retinut asta prin variabila din main used_format
+care initial avea valoarea -1 pentru atunci cand nu este niciun fisier
+incarcat si revine la aceasta valoare cand functia load esueaza, 
+in rest are valoarea 0 pentru imagine de tip grayscale si 1 pentru 
+imagine de tip color. De asemenea, a trebuit sa abordez tactici defensive 
+in multe functii precum in alloc si free, unde am verificat daca pointerii 
+sunt valizi inainte sa ii eliberez pentru a evita erorile. 
